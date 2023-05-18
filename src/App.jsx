@@ -106,19 +106,11 @@ const output = Math.round(celcius)
 
  const weatherIcon =weather && weather.weather[0]?.description;
  
-//  handle key press event
- const handleKeyPress = (e) => {
-      if(e.key === 'Enter'){
-       setSearch(e.target.value)
-       console.log(e.key + "pressed")
-      }
- }
-
 
 
   return (
     <>
- <div className={!isDark ? "" : 'dark-mode max-h-full pb-5 md:h-[120vh]'}>
+ <div className={!isDark ? "" : 'dark-mode max-h-full pb-5 md:h-[120vh] md:pb-0'}>
           <NavBar 
       handleChange={(e) => setSearch(e.target.value)} 
       handleClick={searchPressed} 
@@ -138,7 +130,7 @@ const output = Math.round(celcius)
             sunset={formattedSunset}
             currentDay={getCurrentDay()}
              mode={isDark}
-            // country= {weather.sys.country}
+             country= {weather && weather.sys.country !== undefined ? weather.sys.country : null }
           />
 
           {weather && (
