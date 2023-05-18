@@ -75,6 +75,7 @@ function App() {
   };
 
  console.log(weather)
+//  I will be working this part of the project later , im researching on a free api where i can fetch the montly rainlfall and yearly rainfall calculation 
 //  useEffect(() => {
 //     const apiKey = 'XE2797RHXTU6Q2H9KJTLPZZM5';
 //     const location = "Texas"; // Specify the location for which you want historical weather data
@@ -109,7 +110,7 @@ const output = Math.round(celcius)
  
   return (
     <>
- <div className={!isDark ? "" : 'dark-mode'}>
+ <div className={!isDark ? "" : 'dark-mode max-h-full pb-5'}>
           <NavBar 
       handleChange={(e) => setSearch(e.target.value)} 
       handleClick={searchPressed} 
@@ -146,7 +147,7 @@ const output = Math.round(celcius)
        
     )}
     
-    
+
       </div>
     
       
