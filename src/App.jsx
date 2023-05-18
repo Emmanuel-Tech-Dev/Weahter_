@@ -108,7 +108,7 @@ const output = Math.round(celcius)
  
   return (
     <>
- <div className={!isDark ? "" : 'dark-mode max-h-full pb-5'}>
+ <div className={!isDark ? "" : 'dark-mode max-h-full pb-5 md:h-[100vh]'}>
           <NavBar 
       handleChange={(e) => setSearch(e.target.value)} 
       handleClick={searchPressed} 
