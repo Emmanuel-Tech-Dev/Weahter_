@@ -25,7 +25,7 @@ function App() {
   const [search, setSearch] = useState('');
 
   const [isDark , setIsDark] = useState(false)
-
+// darkmode toggle function
   const handleTheme = () => {
     setIsDark(!isDark)
   }
@@ -106,14 +106,25 @@ const output = Math.round(celcius)
 
  const weatherIcon =weather && weather.weather[0]?.description;
  
+//  handle key press event
+ const handleKeyPress = (e) => {
+      if(e.key === 'Enter'){
+       setSearch(e.target.value)
+       console.log(e.key + "pressed")
+      }
+ }
+
+
+
   return (
     <>
- <div className={!isDark ? "" : 'dark-mode max-h-full pb-5 md:h-[100vh]'}>
+ <div className={!isDark ? "" : 'dark-mode max-h-full pb-5 md:h-[120vh]'}>
           <NavBar 
       handleChange={(e) => setSearch(e.target.value)} 
       handleClick={searchPressed} 
       darkmode={handleTheme} 
       mode={isDark}
+      handleKeyPress={(e) => e.key == "Enter" ? (setSearch(e.target.value) , searchPressed()): null}
       />
 
     {weather === undefined && uvIndex === null ? 

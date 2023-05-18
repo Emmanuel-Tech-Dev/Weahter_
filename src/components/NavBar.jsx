@@ -5,7 +5,7 @@ import {CiLight} from 'react-icons/ci'
 
 
 
-const NavBar = ({handleChange , handleClick , darkmode , mode}) => {
+const NavBar = ({handleChange , handleClick , darkmode , mode , handleKeyPress}) => {
   return (
     <div>
       
@@ -15,7 +15,7 @@ const NavBar = ({handleChange , handleClick , darkmode , mode}) => {
                        
 <div className="wrapper flex gap-5">
    <div className="container border border-[#97A1BC] rounded flex px-3 gap-3 py-1.5">
-                   <input type='text'  placeholder='Enter city name' onChange={handleChange} className='outline-none bg-transparent w-[100%]' /> 
+                   <input type='text'  placeholder='Enter city name'  onKeyDown={handleKeyPress}  onChange={handleChange} className='outline-none bg-transparent w-[100%]' /> 
                   <button onClick={handleClick} ><FiSearch size={20} color='#707B99'/></button>
               
               
