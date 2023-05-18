@@ -28,7 +28,6 @@ function App() {
 
   const handleTheme = () => {
     setIsDark(!isDark)
-    console.log('theme changed')
   }
 
   //converting the surise figure to a real time data
@@ -74,7 +73,6 @@ function App() {
    
   };
 
- console.log(weather)
 //  I will be working this part of the project later , im researching on a free api where i can fetch the montly rainlfall and yearly rainfall calculation 
 //  useEffect(() => {
 //     const apiKey = 'XE2797RHXTU6Q2H9KJTLPZZM5';
