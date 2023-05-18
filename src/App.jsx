@@ -18,15 +18,18 @@ const divBlock = () => {
   )
 }
 
-
-
-
-
 function App() {
   // initaiting all state varibales
   const [weather, setWeather] = useState(null);
   const [uvIndex, setUVIndex] = useState(null);
   const [search, setSearch] = useState('');
+
+  const [isDark , setIsDark] = useState(false)
+
+  const handleTheme = () => {
+    setIsDark(!isDark)
+    console.log('theme changed')
+  }
 
   //converting the surise figure to a real time data
   const sunrise = weather?.sys?.sunrise;
@@ -34,11 +37,6 @@ function App() {
 
   const sunset = weather?.sys?.sunset;
   const formattedSunset = sunset ? moment(sunset).format("HH:mm A") : '';
-
-
-
-
-
 
 
   // Peroforming a query search of data by search the contry
@@ -111,21 +109,26 @@ const output = Math.round(celcius)
  
   return (
     <>
-
-   
-
-
-      <NavBar handleChange={(e) => setSearch(e.target.value)} handleClick={searchPressed} />
+ <div className={!isDark ? "" : 'dark-mode'}>
+          <NavBar 
+      handleChange={(e) => setSearch(e.target.value)} 
+      handleClick={searchPressed} 
+      darkmode={handleTheme} 
+      mode={isDark}
+      />
 
     {weather === undefined && uvIndex === null ? 
     divBlock() : (
       <>
+     
           <Hero
             location={weather && weather.name ? weather.name : 'Location Unavailable'}
             temperature={weather && weather.main !== 'undefined' ? output : 'Unavailable'}
             sunrise={formattedSunrise}
             sunset={formattedSunset}
             currentDay={getCurrentDay()}
+             mode={isDark}
+            // country= {weather.sys.country}
           />
 
           {weather && (
@@ -136,11 +139,15 @@ const output = Math.round(celcius)
               unIndex={uvIndex}
               windy={weather.wind.deg}
               clouds={weatherIcon}
+               mode={isDark}
             />
           )}
         </> 
        
     )}
+    
+    
+      </div>
     
       
     

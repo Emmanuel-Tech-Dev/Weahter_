@@ -8,6 +8,7 @@ export default {
     extend: {
       backgroundImage : {
         "hero" : "url(' ../images/hero.png')",
+        "darkMode" : "url(' ../images/darkhero.png')",
       }
     },
   },
